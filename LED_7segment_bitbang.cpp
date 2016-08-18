@@ -76,10 +76,10 @@ void LED_7segment_bitbang::init()
 
 void LED_7segment_bitbang::done()
 {
-	set_blank_voltages();
 	cli();
 	disable_TIMER2_COMPA_vect();
 	sei();
+	set_blank_voltages();
 }
 
 void LED_7segment_bitbang::next()
