@@ -10,15 +10,8 @@ void setup()
 
 void loop()
 {
-	int i;
-	// write dcimal integer values
-	for (i = 0; i < 200; i++) {
-		led7.writed(i);
-		delay(100);
-	}
-	// write hexadecimal values
-	for (i = 0; i < 0x200; i++) {
-		led7.writeh(i);
-		delay(100);
-	}
+	// Read pin A0, map it to 0 .. 100 %
+	
+	led7.writed(map(analogRead(A0), 0, 1023, 0, 100));
+	delay(100);
 }
