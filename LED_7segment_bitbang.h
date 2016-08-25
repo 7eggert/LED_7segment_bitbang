@@ -119,7 +119,7 @@ class LED_7segment_bitbang final {
   }
   // display next digit; internal function, but it expects to be called from
   // interrupt so it has to be public
-  void LED_7segment_bitbang::next();
+  void next();
 
   private:
   LED_7segment_bitbang(); // Singleton constructor

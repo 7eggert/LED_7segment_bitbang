@@ -1,15 +1,15 @@
 #include <Arduino.h>
 #include "LED_7segment_bitbang.h"
 
-static uint16_t volatile LED_7segment_bitbang::bits[3];
+uint16_t volatile LED_7segment_bitbang::bits[3];
 
-static char volatile LED_7segment_bitbang::current_d;
+char volatile LED_7segment_bitbang::current_d;
 
-static const char LED_7segment_bitbang::digit_pin[] = {
+const char LED_7segment_bitbang::digit_pin[] = {
 	4, 8, 6
 };
 
-static const uint16_t LED_7segment_bitbang::v[] = {
+const uint16_t LED_7segment_bitbang::v[] = {
 	la & lb & lc & le & lf & lg,      //0
 	lc & lf,                          //1
 	la & lc & ld & le & lg,           //2
@@ -45,7 +45,7 @@ static void inline disable_TIMER2_COMPA_vect()
 {
 	TIMSK2 &= ~(1 << OCIE2A);
 }
-static void inline LED_7segment_bitbang::set_blank_voltages()
+void inline LED_7segment_bitbang::set_blank_voltages()
 {
 	PORTD = (PORTD & ~PD) | l_;
 	PORTB = (PORTB & ~PB) | (l_ >> 8);
